@@ -7,19 +7,51 @@
 <!-- Babel CDN -->
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
-<!-- from https://www.w3schools.com/react/react_getstarted.asp -->
-
 <body>
-  <div id="mydiv"></div>
+
+  <div id="app"></div>
+
   <script type="text/babel">
-    class Hello extends React.Component {
+
+    class App extends React.Component {
+
+      constructor(props) {
+        super(props);
+        this.state = {
+          error: null,
+          isLoaded: false,
+          items: []
+        };
+      }
+
+      componentWillMount() {
+        fetch('https://www.nikzprojects.com/api/namelist')
+        .then(response => response.json())
+        .then(data => {this.setState({items:data, isLoaded:true});
+        });
+      }
+
       render() {
-        return <h1><center>Chemistry.Cockatils Search:</center></h1>
+        if (!this.state.isLoaded) {
+          return <div>Loading...</div>;
+        } else {
+          return (
+            <div className="app-content">
+              <h1><center>Name Search:</center></h1>
+              <center><input type="text" placeholder="Search..." /></center>
+              <div>
+                {this.state.items.map(item => (
+                <p>{item.first_name}</p>
+                ))}
+              </div>
+            </div>
+          );
+        }
       }
     }
-    ReactDOM.render(<Hello />, document.getElementById('mydiv'))
+
+    ReactDOM.render(<App />, document.getElementById('app'))
   </script>
 </body>
-
 
 </html>
