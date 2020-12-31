@@ -1,0 +1,20 @@
+.app-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.app-content input {
+  margin-bottom: 10px;
+  width: 300px;
+  height: 32px;
+  font-size:18px;
+  padding-left: 10px;
+}
+
+p {
+  margin: 12px;
+  font-size: 18px;
+}
