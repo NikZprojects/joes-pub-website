@@ -29,6 +29,15 @@ window.fbAsyncInit = function() {
   FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
   });
+  
+  FB.api(
+    '/{your-user-id}/photos',
+    'GET',
+    {},
+    function(response) {
+        // Insert your code here
+    }
+  );
 };
 
 function testAPI() {
@@ -39,12 +48,3 @@ function testAPI() {
       'Thanks for logging in, ' + response.name + '!';
   });
 }
-
-FB.api(
-  '/{your-user-id}/photos',
-  'GET',
-  {},
-  function(response) {
-      // Insert your code here
-  }
-);
