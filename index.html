@@ -21,10 +21,10 @@
     });
 
     FB.AppEvents.logPageView();
-    
+
     FB.login(function(response) {
       console.log(response);
-    }, {scope: 'user_birthday'});
+    });
   };
 
   (function(d, s, id){
