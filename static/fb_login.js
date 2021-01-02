@@ -31,7 +31,7 @@ window.fbAsyncInit = function() {
   });
 
   FB.api(
-    '/{your-user-id}/photos',
+    '/4283777283/photos',
     'GET',
     {},
     function(response) {
