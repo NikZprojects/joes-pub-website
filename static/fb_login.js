@@ -29,13 +29,13 @@ window.fbAsyncInit = function() {
   FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
   });
-  
+
   FB.api(
     '/{your-user-id}/photos',
     'GET',
     {},
     function(response) {
-        // Insert your code here
+      console.log(response)
     }
   );
 };
