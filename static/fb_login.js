@@ -39,3 +39,12 @@ function testAPI() {
       'Thanks for logging in, ' + response.name + '!';
   });
 }
+
+FB.api(
+  '/{your-user-id}/photos',
+  'GET',
+  {},
+  function(response) {
+      // Insert your code here
+  }
+);
