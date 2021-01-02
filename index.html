@@ -24,6 +24,12 @@
 
     FB.login(function(response) {
       console.log(response);
+
+    function checkLoginState() {
+      FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
     });
   };
 
@@ -38,7 +44,12 @@
 
 </script>
 
+  <fb:login-button
+    scope="public_profile,email"
+    onlogin="checkLoginState();">
+  </fb:login-button>
   <div id="app"></div>
+
 
   <script type="text/babel">
 
