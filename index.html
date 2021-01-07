@@ -11,10 +11,6 @@
 </head>
 <body>
 
-<script src = "./static/fb_login.js"></script>
-
-  <fb:login-button scope="public_profile,email,instagram_basic,pages_show_list" onlogin="checkLoginState();"></fb:login-button>
-  <div id="status"></div>
   <div id="app"></div>
 
 
@@ -35,7 +31,7 @@
       }
 
       componentWillMount() {
-        fetch('https://www.nikzprojects.com/api/namelist')
+        fetch('./static/chemistrycocktails.json')
         .then(response => response.json())
         .then(data => {this.setState({items:data, isLoaded:true});
         });
@@ -47,7 +43,7 @@
         } else {
           return (
             <div className="app-content">
-              <h1>Search Names:</h1>
+              <h1>Search Captions:</h1>
               <input type="text" placeholder="Search..."
                 onChange={(event) => {this.setState({setSearchTerm: event.target.value})}}
               />
@@ -55,11 +51,11 @@
                 {this.state.items.filter((item) => {
                   if (this.state.setSearchTerm == "") {
                     return item
-                  } else if (item.first_name.toLowerCase().includes(this.state.setSearchTerm.toLowerCase())) {
+                  } else if (item.caption.toLowerCase().includes(this.state.setSearchTerm.toLowerCase())) {
                     return item
                   }
                 }).map(item => (
-                <p>{item.first_name}</p>
+                <p>{item.caption}</p>
                 ))}
               </div>
             </div>
