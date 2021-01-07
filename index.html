@@ -55,7 +55,9 @@
                     return item
                   }
                 }).map(item => (
-                  <a href={item.link}><img id="ig_img" src={item.image}></img></a>
+                  <a href={item.link} target=_blank>
+                    <img id="ig_img" src={item.image}></img>
+                  </a>
                 ))}
               </div>
             </div>
