@@ -7,10 +7,12 @@
 <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
 <!-- Babel CDN -->
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script src='./static/fb_login.js'></script>
 <link rel="stylesheet" href="./static/style.css">
 </head>
 <body>
 
+  <fb:login-button scope="public_profile,email,instagram_basic,pages_show_list" onlogin="checkLoginState();"></fb:login-button>
   <div id="app"></div>
 
 
