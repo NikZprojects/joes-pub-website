@@ -33,7 +33,7 @@
       }
 
       componentWillMount() {
-        fetch('./static/chemistrycocktails.json')
+        fetch('./static/chemistrycocktails2.json')
         .then(response => response.json())
         .then(data => {this.setState({items:data, isLoaded:true});
         });
@@ -57,8 +57,8 @@
                     return item
                   }
                 }).map(item => (
-                  <a href={item.link} target="_blank">
-                    <img id="ig_img" src={item.image}></img>
+                  <a href={item.permalink} target="_blank">
+                    <img id="ig_img" src={item.media_url}></img>
                   </a>
                 ))}
               </div>
