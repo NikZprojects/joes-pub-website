@@ -109,29 +109,39 @@ function isSocialPost(social_posts, permalink) {
   return false
 };
 
-fetch("./static/chemistrycocktails2.json")
+// fetch("./static/chemistrycocktails2.json")
+//   .then(response => response.json())
+//   .then(data => original_json = data)
+//   .then(() => {
+//     fetch("./static/social_posts")
+//       .then(response2 => response2.json())
+//       .then(data2 => social_posts = data2)
+//       .then(() => {
+//         var i
+//         for (i=0; i < original_json.length; i++) {
+//           img_data = original_json[i]
+//           if (img_data.media_type == "IMAGE"){
+//             if (!img_data.caption.includes("#regrann")){
+//               if (!isSocialPost(social_posts, img_data.permalink)){
+//                 img_data_json.push(img_data)
+//                 img_data = JSON.stringify(img_data) + ","
+//                 document.getElementById("json").innerHTML += img_data
+//               };
+//             };
+//           };
+//         };
+//       })
+//   })
+//   .then(() =>{
+//     console.log(img_data_json)
+//   })
+
+fetch("./static/chemistrycocktails4.json")
   .then(response => response.json())
-  .then(data => original_json = data)
+  .then(json => img_data_json = json)
   .then(() => {
-    fetch("./static/social_posts")
-      .then(response2 => response2.json())
-      .then(data2 => social_posts = data2)
-      .then(() => {
-        var i
-        for (i=0; i < original_json.length; i++) {
-          img_data = original_json[i]
-          if (img_data.media_type == "IMAGE"){
-            if (!img_data.caption.includes("#regrann")){
-              if (!isSocialPost(social_posts, img_data.permalink)){
-                img_data = JSON.stringify(img_data) + ","
-                img_data_json.push(img_data)
-                document.getElementById("json").innerHTML += img_data
-              };
-            };
-          };
-        };
-      })
-  })
-  .then(() =>{
+    img_data_json.sort(function(a,b){
+      return new Date(b.timestamp) - new Date(a.timestamp)
+    })
     console.log(img_data_json)
   })
