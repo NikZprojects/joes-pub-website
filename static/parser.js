@@ -29,41 +29,58 @@ var img_link, img_link_array
 var img_link_array = []
 var img_data
 var img_data_json = []
+var url
 
-fetch("./access_keys.json")
+// fetch("./access_keys.json")
+//   .then(response => response.json())
+//   .then(json => access_keys = json)
+//   .then(() => url = "https://graph.facebook.com/v9.0/" + access_keys.user_id + "/media?access_token=" + access_keys.access_token)
+//   .then(() => {
+//     async function fetchData(url) {
+//        await fetch(url)
+//         .then(response => response.json())
+//         .then(json => img_json = json)
+//         .then(() => {
+//           img_array = img_json.data
+//           var i
+//           for (i=0; i < img_array.length; i++) {
+//             img_link = "https://graph.facebook.com/v9.0/" +
+//               img_array[i].id +"?fields=id,permalink,media_type,media_url,caption,timestamp&access_token="
+//               + access_keys.access_token
+//
+//             img_link_array.push(img_link)
+//           };
+//           if (img_json.paging.next !== undefined){
+//             url = img_json.paging.next
+//             console.log("loading...")
+//             fetchData(url)
+//           } else {
+//             return img_link_array
+//             console.log(img_link_array)
+//           };
+//         })
+//     };
+//   })
+
+fetch("./img_link_array")
   .then(response => response.json())
-  .then(json => access_keys = json)
+  .then(data => img_link_array = data)
   .then(() => {
-    fetch("https://graph.facebook.com/v9.0/" + access_keys.user_id + "/media?access_token=" + access_keys.access_token)
+  var i
+  for (i=0; i < img_link_array.length; i++) {
+    id = i
+    fetch(img_link_array[id])
       .then(response => response.json())
-      .then(json => img_json = json)
+      .then(json => img_data = json)
       .then(() => {
-        console.log(img_json)
-        img_array = img_json.data
-        var i
-        for (i=0; i < img_array.length; i++) {
-          img_link = "https://graph.facebook.com/v9.0/" +
-            img_array[i].id +"?fields=id,permalink,media_type,media_url,caption&access_token="
-            + access_keys.access_token
-
-          img_link_array.push(img_link)
+        if (img_data.media_type == "IMAGE"){
+          img_data = JSON.stringify(img_data) + ","
+          img_data_json.push(img_data)
+          document.getElementById("json").innerHTML += img_data
         };
       })
-      .then(() => {
-        var i
-        for (i=0; i < img_link_array.length; i++) {
-          id = i
-          fetch(img_link_array[id])
-            .then(response => response.json())
-            .then(json => img_data = json)
-            .then(() => {
-              img_data = JSON.stringify(img_data) + ","
-              img_data_json.push(img_data)
-              document.getElementById("json").innerHTML += img_data
-            })
-        };
-      })
-    })
-    .then(() =>{
-      console.log(img_data_json)
-    })
+    };
+  })
+  .then(() =>{
+    console.log(img_data_json)
+  })
