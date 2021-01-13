@@ -1,3 +1,5 @@
+////Parses data from scraped IG page into a usable JSON
+
 // var data
 // var new_json, caption, img, link
 // var final_json = []
@@ -24,12 +26,16 @@
 //     console.log(new_json)
 //   });
 
-var img_json, img_array
-var img_link, img_link_array
-var img_link_array = []
-var img_data
-var img_data_json = []
-var url
+
+
+//// Gets array of api links from access key and IG user_id
+
+// var img_json, img_array
+// var img_link, img_link_array
+// var img_link_array = []
+// var img_data
+// var img_data_json = []
+// var url
 
 // fetch("./access_keys.json")
 //   .then(response => response.json())
@@ -62,24 +68,69 @@ var url
 //     };
 //   })
 
-fetch("./img_link_array")
-  .then(response => response.json())
-  .then(data => img_link_array = data)
-  .then(() => {
+//// Takes list of image urls and forms it into a JSON, uses previous variables.
+//// requires manual tweaking currently to remove comma and add []'s
+
+// fetch("./img_link_array")
+//   .then(response => response.json())
+//   .then(data => img_link_array = data)
+//   .then(() => {
+//   var i
+//   for (i=0; i < img_link_array.length; i++) {
+//     id = i
+//     fetch(img_link_array[id])
+//       .then(response => response.json())
+//       .then(json => img_data = json)
+//       .then(() => {
+//         if (img_data.media_type == "IMAGE"){
+//           img_data = JSON.stringify(img_data) + ","
+//           img_data_json.push(img_data)
+//           document.getElementById("json").innerHTML += img_data
+//         };
+//       })
+//     };
+//   })
+//   .then(() =>{
+//     console.log(img_data_json)
+//   })
+
+//// Filters an already recieved json for reposts and social posts
+
+var original_json, social_posts, img_data, permalink
+var img_data_json = []
+
+function isSocialPost(social_posts, permalink) {
   var i
-  for (i=0; i < img_link_array.length; i++) {
-    id = i
-    fetch(img_link_array[id])
-      .then(response => response.json())
-      .then(json => img_data = json)
+  for (i=0; i<social_posts.length; i++){
+    if (social_posts[i].includes(permalink)){
+      return true
+    };
+  };
+  return false
+};
+
+fetch("./static/chemistrycocktails2.json")
+  .then(response => response.json())
+  .then(data => original_json = data)
+  .then(() => {
+    fetch("./static/social_posts")
+      .then(response2 => response2.json())
+      .then(data2 => social_posts = data2)
       .then(() => {
-        if (img_data.media_type == "IMAGE"){
-          img_data = JSON.stringify(img_data) + ","
-          img_data_json.push(img_data)
-          document.getElementById("json").innerHTML += img_data
+        var i
+        for (i=0; i < original_json.length; i++) {
+          img_data = original_json[i]
+          if (img_data.media_type == "IMAGE"){
+            if (!img_data.caption.includes("#regrann")){
+              if (!isSocialPost(social_posts, img_data.permalink)){
+                img_data = JSON.stringify(img_data) + ","
+                img_data_json.push(img_data)
+                document.getElementById("json").innerHTML += img_data
+              };
+            };
+          };
         };
       })
-    };
   })
   .then(() =>{
     console.log(img_data_json)
