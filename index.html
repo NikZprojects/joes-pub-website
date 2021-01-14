@@ -48,13 +48,13 @@
             <div className="app-content">
               <h1>Chemistry.Cocktails Search</h1>
               <input type="text" placeholder="Search..."
-                onChange={(event) => {this.setState({setSearchTerm:event.target.value})}}
+                onChange={(event) => {this.setState({setSearchTerm:(" " + event.target.value)})}}
               />
               <div className="img_block">
                 {this.state.items.filter((item) => {
                   if (this.state.setSearchTerm.trim() == "") {
                     return item
-                  } else if (item.caption.toLowerCase().includes(this.state.setSearchTerm.toLowerCase())) {
+                  } else if ((item.caption.replace( /[\r\n'"*#@]+/gm, " " ).toLowerCase()).includes(this.state.setSearchTerm.replace( /[\r\n'"*#@]+/gm, " " ).toLowerCase().trim())) {
                     return item
                   }
                 }).map(item => (
