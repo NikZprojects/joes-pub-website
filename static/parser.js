@@ -94,28 +94,28 @@
 //     console.log(img_data_json)
 //   })
 
-//// Filters an already recieved json for reposts and social posts
+// Filters an already recieved json for reposts and social posts
 
-var original_json, social_posts, img_data, permalink
-var img_data_json = []
-
-function isSocialPost(social_posts, permalink) {
-  var i
-  for (i=0; i<social_posts.length; i++){
-    if (social_posts[i].includes(permalink)){
-      return true
-    };
-  };
-  return false
-};
-
-// fetch("./static/chemistrycocktails2.json")
+// var original_json, social_posts, img_data, permalink
+// var img_data_json = []
+//
+// function isSocialPost(social_posts, permalink) {
+//   var i
+//   for (i=0; i<social_posts.length; i++){
+//     if (social_posts[i].includes(permalink)){
+//       return true
+//     };
+//   };
+//   return false
+// };
+//
+// fetch("./static/chemistrycocktails3.json")
 //   .then(response => response.json())
 //   .then(data => original_json = data)
 //   .then(() => {
 //     fetch("./static/social_posts")
-//       .then(response2 => response2.json())
-//       .then(data2 => social_posts = data2)
+//       .then(response => response.json())
+//       .then(data => social_posts = data)
 //       .then(() => {
 //         var i
 //         for (i=0; i < original_json.length; i++) {
