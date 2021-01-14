@@ -54,7 +54,7 @@
                 {this.state.items.filter((item) => {
                   if (this.state.setSearchTerm.trim() == "") {
                     return item
-                  } else if ((item.caption.replace( /[\r\n'"*#@]+/gm, " " ).toLowerCase()).includes(this.state.setSearchTerm.replace( /[\r\n'"*#@]+/gm, " " ).toLowerCase().trim())) {
+                  } else if ((item.caption.replace( /[\r\n'"*#@]+/gm, " " ).toLowerCase()).includes(this.state.setSearchTerm.replace( /[\r\n'"*#@]+/gm, " " ).toLowerCase())) {
                     return item
                   }
                 }).map(item => (
