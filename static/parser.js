@@ -70,7 +70,7 @@
 
 //// Takes list of image urls and forms it into a JSON, uses previous variables.
 //// requires manual tweaking currently to remove comma and add []'s
-
+//
 // fetch("./img_link_array")
 //   .then(response => response.json())
 //   .then(data => img_link_array = data)
@@ -96,9 +96,9 @@
 
 // Filters an already recieved json for reposts and social posts
 
-// var original_json, social_posts, img_data, permalink
-// var img_data_json = []
-//
+var original_json, social_posts, img_data, permalink
+var img_data_json = []
+
 // function isSocialPost(social_posts, permalink) {
 //   var i
 //   for (i=0; i<social_posts.length; i++){
