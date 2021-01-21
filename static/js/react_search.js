@@ -12,7 +12,7 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    fetch('./static/data/chemistrycocktails4.json')
+    fetch('./static/data/chemistrycocktails_production.json')
     .then(response => response.json())
     .then(data => {
 
