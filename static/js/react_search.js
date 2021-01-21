@@ -1,6 +1,5 @@
 class App extends React.Component {
 
-
   constructor(props) {
     super(props);
     this.state = {
@@ -13,7 +12,7 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    fetch('./static/chemistrycocktails4.json')
+    fetch('./static/data/chemistrycocktails4.json')
     .then(response => response.json())
     .then(data => {
 
