@@ -57,9 +57,15 @@ getDatafromIG(access_key).then(data => {
       let path = "../static/data/chemistrycocktails_production.json"
       fs.writeFile(path, JSON.stringify(sortJSON(originalData)), err => {
         if (err) throw err;
-        console.log("Sucess! Updated file " + path);
+
         let verifyData = require("../static/data/chemistrycocktails_production.json")
-        console.log("Most recent post date: " + JSON.stringify(verifyData[0].timestamp));
+        if (verifyData === originalData){
+          console.log("Posts already up to date!")
+          console.log("Most recent post date: " + JSON.stringify(verifyData[0].timestamp));
+        } else {
+          console.log("Sucess! Updated file " + path);
+          console.log("Most recent post date: " + JSON.stringify(verifyData[0].timestamp));
+        };
       })
     };
   };
