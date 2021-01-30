@@ -1,8 +1,9 @@
 const fs = require("fs");
-const axios = require("axios")
+const axios = require("axios");
+const path = require('path');
 
-const access_key = require("../static/data/access_keys.json").access_key
-const originalData = require("../static/data/chemistrycocktails_production.json")
+const access_key = require(path.join("..", "static", "data", "access_keys.json")).access_key
+const originalData = require(path.join("..", "static", "data", "chemistrycocktails_production.json"))
 const exclude = require("./exclude.json")
 
 
