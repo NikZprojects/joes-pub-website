@@ -1,8 +1,0 @@
-name: autoupdate
-
-on:
-  push:
-    branches:
-      - updateJSON
-  pull_request:
-    branches: [ master ]
