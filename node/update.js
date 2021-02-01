@@ -54,8 +54,6 @@ getDatafromIG(access_key).then(data => {
     if (i === newData.length - 1) {
       const path = "../static/data/chemistrycocktails_production.json"
       const result = JSON.stringify(sortJSON(originalData))
-      console.log(JSON.parse(verifyData)[0])
-      console.log(sortJSON(originalData)[0])
       if (verifyData === originalData){
         console.log("Posts already up to date!")
         console.log("Most recent post date: " + JSON.stringify(originalData[0].timestamp));
