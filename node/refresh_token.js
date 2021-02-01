@@ -19,7 +19,6 @@ async function getDatafromIG(access_key) {
 }
 
 getDatafromIG(old_token).then(data => {
-  console.log(data)
   const new_token = data.access_token
   const path = "../static/data/access_keys.json"
   access_keys["access_key"] = new_token
