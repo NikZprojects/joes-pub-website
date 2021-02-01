@@ -4,8 +4,8 @@ const path = require('path');
 
 const access_key = require(path.join("..", "static", "data", "access_keys.json")).access_key
 const originalData = require(path.join("..", "static", "data", "chemistrycocktails_production.json"))
+const verifyData = JSON.stringify(originalData)
 const exclude = require("./exclude.json")
-
 
 async function getDatafromIG(access_key) {
   const url = "https://graph.instagram.com/me/media?fields=id,permalink,media_type,media_url,caption,timestamp&access_token=" + access_key;
@@ -23,8 +23,6 @@ async function getDatafromIG(access_key) {
 
 getDatafromIG(access_key).then(data => {
   const newData = data.data
-
-  const tempData = []
 
   function isExcluded(excluded, permalink) {
     for (i=0; i<excluded.permalink.length; i++){
@@ -54,20 +52,23 @@ getDatafromIG(access_key).then(data => {
       originalData.push(item)
     };
     if (i === newData.length - 1) {
-      //console.log(sortJSON(originalData))
-      let path = "../static/data/chemistrycocktails_production.json"
-      fs.writeFile(path, JSON.stringify(sortJSON(originalData)), err => {
-        if (err) throw err;
-
-        let verifyData = require("../static/data/chemistrycocktails_production.json")
-        if (verifyData === originalData){
-          console.log("Posts already up to date!")
-          console.log("Most recent post date: " + JSON.stringify(verifyData[0].timestamp));
-        } else {
+      const path = "../static/data/chemistrycocktails_production.json"
+      const result = JSON.stringify(sortJSON(originalData))
+      console.log(JSON.parse(verifyData)[0])
+      console.log(sortJSON(originalData)[0])
+      if (verifyData === originalData){
+        console.log("Posts already up to date!")
+        console.log("Most recent post date: " + JSON.stringify(originalData[0].timestamp));
+      } else {
+        fs.writeFile(path, result, (err => {
+          if (err){
+            throw err
+          } else {
           console.log("Sucess! Updated file " + path);
-          console.log("Most recent post date: " + JSON.stringify(verifyData[0].timestamp));
-        };
-      })
+          console.log("Most recent post date: " + JSON.stringify(originalData[0].timestamp))
+          };
+        }))
+      };
     };
   };
 })
