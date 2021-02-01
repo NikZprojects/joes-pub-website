@@ -75,7 +75,7 @@ class App extends React.Component {
               }
             }).map(item => (
               <a href={item.permalink} target="_blank">
-                <img id="ig_img" title={item.caption} alt={item.caption} src={item.media_url} loading="lazy"></img>
+                <img id="ig_img" alt={item.caption} src={item.media_url} loading="lazy"></img>
               </a>
             ))}
           </div>
