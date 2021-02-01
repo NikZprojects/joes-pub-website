@@ -24,8 +24,6 @@ getDatafromIG(old_token).then(data => {
   const path = "../static/data/access_keys.json"
   access_keys["access_key"] = new_token
 
-  console.log(new_token)
-
   fs.writeFile(path, JSON.stringify(access_keys), (err => {
     if (err){
       throw err
