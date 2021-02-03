@@ -1,6 +1,7 @@
 const fs = require("fs");
 const axios = require("axios");
 const path = require('path');
+const time = new Date();
 
 const access_key = require(path.join("..", "static", "data", "access_keys.json")).access_key
 const originalData = require(path.join("..", "static", "data", "chemistrycocktails_production.json"))
@@ -54,6 +55,7 @@ getDatafromIG(access_key).then(data => {
     if (i === newData.length - 1) {
       const path = "../static/data/chemistrycocktails_production.json"
       const result = JSON.stringify(sortJSON(originalData))
+      console.log("\n\n" + time.toLocaleString('en-US', { timeZone: 'America/New_York' }) + " EST:\n")
       if (verifyData === result){
         console.log("Posts already up to date!")
         console.log("Most recent post date: " + JSON.stringify(originalData[0].timestamp));

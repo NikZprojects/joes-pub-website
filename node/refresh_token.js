@@ -1,5 +1,6 @@
 const fs = require("fs");
 const axios = require("axios");
+const time = new Date();
 
 const access_keys = require("../static/data/access_keys.json")
 const old_token = access_keys.access_key
@@ -20,6 +21,7 @@ async function getDatafromIG(access_key) {
 
 getDatafromIG(old_token).then(data => {
   const new_token = data.access_token
+  const expires = new Date(time.getTime() + (data.expires_in * 1000))
   const path = "../static/data/access_keys.json"
   access_keys["access_key"] = new_token
 
@@ -27,7 +29,9 @@ getDatafromIG(old_token).then(data => {
     if (err){
       throw err
     } else {
+    console.log("\n\n" + time.toLocaleString('en-US', { timeZone: 'America/New_York' }) + " EST:\n")
     console.log("Sucess! Instagram access token is now up-to-date.");
+    console.log("Access token will expire: " + expires)
     };
   }))
 })
