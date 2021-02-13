@@ -16,6 +16,7 @@ const originalData = require(path.join(
   "data",
   "chemistrycocktails_production.json"
 ));
+
 const verifyData = JSON.stringify(originalData);
 const exclude = require("./exclude.json");
 var url =
@@ -40,12 +41,18 @@ function sortJSON(data) {
 
 async function getDatafromIG(access_key, url) {
   const getData = async (url) => {
-    try {
-      const response = await axios.get(url);
-      const data = response.data;
-      return await data;
-    } catch (error) {
-      console.log(error);
+    for (let tries = 5; tries > 0; tries--) {
+      try {
+        const response = await axios.get(url);
+        const data = response.data;
+        return await data;
+      } catch (error) {
+        if (tries === 1) {
+          console.log(error);
+        } else {
+          console.log("Request failed. Retrying...");
+        }
+      }
     }
   };
   return await getData(url);
