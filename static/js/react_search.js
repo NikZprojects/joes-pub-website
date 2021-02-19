@@ -1,5 +1,4 @@
 class App extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -7,17 +6,16 @@ class App extends React.Component {
       isLoaded: false,
       items: [],
       searchTerm: "",
-      setSearchTerm: ""
+      setSearchTerm: "",
     };
   }
 
   componentWillMount() {
-    fetch('./static/data/chemistrycocktails_production.json')
-    .then(response => response.json())
-    .then(data => {
-
-      this.setState({items:data, isLoaded:true});
-    });
+    fetch("https://www.nikzprojects.com/api/chemistrycocktails.json")
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({ items: data, isLoaded: true });
+      });
   }
 
   render() {
@@ -27,57 +25,82 @@ class App extends React.Component {
       return (
         <div className="app-content">
           <h1>Chemistry.Cocktails Search</h1>
-          <input type="text" placeholder="Search..."
-            onChange={(event) => {this.setState({setSearchTerm:event.target.value.replace( /[\r\n'*#@]+/gm, "" ).toLowerCase().trim()})}}
-            autofocus />
+          <input
+            type="text"
+            placeholder="Search..."
+            onChange={(event) => {
+              this.setState({
+                setSearchTerm: event.target.value
+                  .replace(/[\r\n'*#@]+/gm, "")
+                  .toLowerCase()
+                  .trim(),
+              });
+            }}
+            autofocus
+          />
           <div className="img_block">
+            {this.state.items
+              .filter((item) => {
+                var searchableCaption = item.caption
+                  .replace(/[\r\n'"*#@]+/gm, " ")
+                  .toLowerCase();
+                var searchTerm = this.state.setSearchTerm;
 
-            {this.state.items.filter((item) => {
-
-              var searchableCaption = item.caption.replace( /[\r\n'"*#@]+/gm, " ").toLowerCase()
-              var searchTerm = this.state.setSearchTerm
-
-
-              function matchingItems(searchTerm, item) {
-                if (searchableCaption.includes(" " + searchTerm.replace( /[",]+/gm, ""))) {
-                  return item
+                function matchingItems(searchTerm, item) {
+                  if (
+                    searchableCaption.includes(
+                      " " + searchTerm.replace(/[",]+/gm, "")
+                    )
+                  ) {
+                    return item;
+                  }
                 }
-              }
-              // If search bar empty:
-              if (searchTerm == "") {
-                return item
-
-              } else {
-                // Quote search:
-                if (searchTerm[0] == '"' && searchTerm[searchTerm.length - 1] == '"') {
-                  searchTerm += " "
-                  if (matchingItems(searchTerm, item)) {
-                    return item
-                  }
-
-                // Comma search:
-                } else if (searchTerm.includes(",")) {
-                  var searchTermArray = searchTerm.split(",")
-
-                  for (let i = searchTermArray.length-1; i >= 0; i --) {
-                    let currentSearch = searchTermArray[i].trim()
-                    if (!matchingItems(currentSearch, item)) {
-                      break
-                    } else if (matchingItems(currentSearch, item) && i === 0) {
-                      return item
+                // If search bar empty:
+                if (searchTerm == "") {
+                  return item;
+                } else {
+                  // Quote search:
+                  if (
+                    searchTerm[0] == '"' &&
+                    searchTerm[searchTerm.length - 1] == '"'
+                  ) {
+                    searchTerm += " ";
+                    if (matchingItems(searchTerm, item)) {
+                      return item;
                     }
-                  }
 
-                // Search:
-              } else if (matchingItems(searchTerm, item)) {
-                    return item
+                    // Comma search:
+                  } else if (searchTerm.includes(",")) {
+                    var searchTermArray = searchTerm.split(",");
+
+                    for (let i = searchTermArray.length - 1; i >= 0; i--) {
+                      let currentSearch = searchTermArray[i].trim();
+                      if (!matchingItems(currentSearch, item)) {
+                        break;
+                      } else if (
+                        matchingItems(currentSearch, item) &&
+                        i === 0
+                      ) {
+                        return item;
+                      }
+                    }
+
+                    // Search:
+                  } else if (matchingItems(searchTerm, item)) {
+                    return item;
                   }
-              }
-            }).map(item => (
-              <a href={item.permalink} target="_blank">
-                <img id="ig_img" alt={item.caption} src={item.media_url} loading="lazy"></img>
-              </a>
-            ))}
+                }
+              })
+              .map((item) => (
+                <a href={item.permalink} target="_blank">
+                  <img
+                    id="ig_img"
+                    alt={item.caption}
+                    src={item.media_url}
+                    loading="lazy"
+                  ></img>
+                </a>
+              ))}
           </div>
         </div>
       );
@@ -85,4 +108,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'))
+ReactDOM.render(<App />, document.getElementById("app"));
