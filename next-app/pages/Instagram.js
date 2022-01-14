@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "../styles/Instagram.module.css";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Instagram() {
   const [state, setState] = useState({
@@ -92,14 +94,19 @@ export default function Instagram() {
                 }
               })
               .map((item) => (
-                <a href={item.permalink} target="_blank">
+                <Link
+                  href={item.permalink}
+                  key={item.id}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <img
                     id="ig_img"
                     alt={item.caption}
                     src={item.media_url}
                     loading="lazy"
                   ></img>
-                </a>
+                </Link>
               ))}
           </div>
         </div>

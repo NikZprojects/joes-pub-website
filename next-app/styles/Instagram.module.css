@@ -27,6 +27,7 @@
 }
 
 .instagram img {
+  cursor: pointer;
   object-fit: contain;
   width: 225px;
   height: 225px;
