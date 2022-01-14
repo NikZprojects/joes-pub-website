@@ -1,3 +1,8 @@
+.logoContainer {
+  width: 60%;
+  max-width: 700px;
+}
+
 .container {
   padding: 0 2rem;
 }
@@ -11,6 +16,20 @@
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width: 800px) {
+  .main {
+    padding: 2rem 0;
+  }
+  .container {
+    padding: 0 0;
+  }
+  .logoContainer {
+    width: 90%;
+  }
+}
+
+/*-----------*/
 
 .footer {
   display: flex;
@@ -42,7 +61,7 @@
 .title {
   margin: 0;
   line-height: 1.15;
-  font-size: 4rem;
+  font-size: calc(2em + 1vw);
 }
 
 .title,
