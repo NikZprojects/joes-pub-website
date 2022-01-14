@@ -1,18 +1,3 @@
-// export default function Instagram() {
-//   return (
-//     <div
-//       style={{
-//         minHeight: "80vh",
-//         display: "flex",
-//         alignItems: "center",
-//         justifyContent: "center",
-//       }}
-//     >
-//       This page is coming soon!
-//     </div>
-//   );
-// }
-
 import { useState, useEffect } from "react";
 import styles from "../styles/Instagram.module.css";
 
@@ -39,7 +24,7 @@ export default function Instagram() {
         <div>Loading...</div>
       ) : (
         <div className={styles.appContent}>
-          <h1>chemistry.cocktails Search Page</h1>
+          <h1>Search chemistry.cocktails:</h1>
           <input
             type="text"
             placeholder="Search..."
@@ -122,5 +107,3 @@ export default function Instagram() {
     </div>
   );
 }
-
-// ReactDOM.render(<App />, document.getElementById("app"));

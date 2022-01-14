@@ -1,6 +1,6 @@
 .logoContainer {
-  width: 60%;
-  max-width: 700px;
+  width: 50%;
+  max-width: 600px;
 }
 
 .container {
@@ -13,8 +13,9 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  vertical-align: top;
 }
 
 @media (max-width: 800px) {
@@ -30,6 +31,44 @@
 }
 
 /*-----------*/
+
+.about {
+  display: flex;
+  justify-content: center;
+}
+.about .container {
+  max-width: 1200px;
+  padding: 20px 20px;
+}
+
+.establishedContainer {
+  position: absolute;
+  display: flex;
+  right: 30vw;
+  top: 70vh;
+  height: 0;
+}
+.establishedContainer h3 {
+  font-family: "Charm", cursive;
+  font-weight: lighter;
+  font-size: calc(0.7em + 1vw);
+}
+
+.locationsContainer {
+  max-width: 40vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.locationsContainer h2 {
+  font-family: "Charm", cursive;
+  font-weight: normal;
+  padding: 0px 20px;
+  margin: 10px 0px;
+  font-size: calc(1em + 2vw);
+  text-align: center;
+  white-space: nowrap;
+}
 
 .footer {
   display: flex;
@@ -62,6 +101,8 @@
   margin: 0;
   line-height: 1.15;
   font-size: calc(2em + 1vw);
+  font-weight: normal;
+  margin-bottom: 20px;
 }
 
 .title,
