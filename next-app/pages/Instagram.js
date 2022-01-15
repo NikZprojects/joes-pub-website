@@ -26,7 +26,7 @@ export default function Instagram() {
         <div>Loading...</div>
       ) : (
         <div className={styles.appContent}>
-          <h1>Search chemistry.cocktails:</h1>
+          <h1>Chemistry.Cocktails Search</h1>
           <input
             type="text"
             placeholder="Search..."
