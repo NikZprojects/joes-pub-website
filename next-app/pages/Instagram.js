@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "../styles/Instagram.module.css";
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 
 export default function Instagram() {
   const [state, setState] = useState({
