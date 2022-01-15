@@ -1,7 +1,7 @@
 import styles from "../styles/Navbar.module.css";
 import Link from "next/link";
-import Image from "next/image";
-import logo from "../public/android-chrome-192x192.png";
+// import Image from "next/image";
+// import logo from "../public/android-chrome-192x192.png";
 // import logo from "../public/JPsLogo.svg";
 
 export default function Navbar() {
@@ -10,12 +10,11 @@ export default function Navbar() {
       <div className={styles.container}>
         <div className={styles.logoContainer}>
           <Link href="/">
-            <Image
+            <img
               className={styles.logo}
-              src={logo}
+              src="/android-chrome-192x192.png"
               alt="Navnpbar logo"
               width={50}
-              height={50}
             />
           </Link>
         </div>
