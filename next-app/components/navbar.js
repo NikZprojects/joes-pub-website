@@ -18,18 +18,18 @@ export default function Navbar() {
             />
           </Link>
         </div>
-        <Link href="/About">
+        <Link href="/about">
           <h1>About</h1>
         </Link>
-        <Link href="/Digital_Menu">
+        <Link href="/menu">
           <h1>Menu</h1>
         </Link>
 
-        <Link href="/Instagram">
+        <Link href="/instagram">
           <h1>Instagram</h1>
         </Link>
 
-        <Link href="/Recipes">
+        <Link href="/recipes">
           <h1>Recipes</h1>
         </Link>
       </div>
