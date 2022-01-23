@@ -39,8 +39,8 @@ export default function About() {
             anything threatens that, it will be removed.
           </li>
           <li>
-            We work on the honor system. We do not check IDs, but expect that
-            all of our patrons are honest about their legal age.
+            We work on the honor system. We expect that all of our patrons are
+            honest about their legal age.
           </li>
           <li>
             There is no last call, but everybody must be gone or going by 12:20
