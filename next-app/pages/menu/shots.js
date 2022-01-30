@@ -25,11 +25,11 @@ export default function Menu() {
           <span>&nbsp; </span>
           <span class="c3">
             Grenadine, bourbon, peach schnapps, blue raspberry vodka,
-            Everclear&reg; (Flaming(
+            Everclear&reg; (Flaming)
           </span>
         </p>
         <p class="c4">
-          <span class={styles.title}>Kat Perry</span>
+          <span class={styles.title}>Katy Perry</span>
           <span>&nbsp; </span>
           <span class="c3">Cinnamon schnapps, cr&egrave;me de menthe</span>
         </p>
