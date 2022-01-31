@@ -1,4 +1,5 @@
 import styles from "../styles/Home.module.css";
+import { EmblaCarousel } from "../components/carousel";
 
 export default function About() {
   return (
@@ -22,7 +23,9 @@ export default function About() {
           Rochester, NY; Binghamton, NY; Aarhus, Denmark; and Wilmington, DE,
           all the while spreading smiles, enjoyment, and quality entertainment.
         </p>
-        <div className="slideshow"></div>
+        <div className="slideshow">
+          <EmblaCarousel />
+        </div>
         Joe&apos;s Pub has had the pleasure in competing in invited several
         cocktail competitions.
         <div className="images"></div>
