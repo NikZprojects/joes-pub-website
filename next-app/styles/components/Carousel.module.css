@@ -7,4 +7,18 @@
 .embla__slide {
   position: relative;
   flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.introImg {
+  width: 100%;
+  object-fit: cover;
+  padding: 1vw;
+  width: 70vw;
+  height: 70vw;
+  min-width: 300px;
+  min-height: 300px;
+  max-width: 600px;
+  max-height: 500px;
 }

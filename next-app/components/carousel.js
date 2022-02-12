@@ -1,16 +1,25 @@
 import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import styles from "../styles/components/Carousel";
+import styles from "../styles/components/Carousel.module.css";
+import Autoplay from "embla-carousel-autoplay";
 
+const IntroImages = [
+  "/IntroPage/BinghamtonBarv1.jpg",
+  "/IntroPage/BinghamtonBarv2.jpg",
+  "/IntroPage/AarhusBar.jpg",
+  "/IntroPage/WilmingtonBar.jpg",
+];
 export const EmblaCarousel = () => {
-  const [emblaRef] = useEmblaCarousel();
+  const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay()]);
 
   return (
-    <div className="embla" ref={emblaRef}>
-      <div className="embla__container">
-        <div className="embla__slide">Slide 1</div>
-        <div className="embla__slide">Slide 2</div>
-        <div className="embla__slide">Slide 3</div>
+    <div className={styles.embla} ref={emblaRef}>
+      <div className={styles.embla__container}>
+        {IntroImages.map((src) => (
+          <div className={styles.embla__slide}>
+            <img className={styles.introImg} src={src} />
+          </div>
+        ))}
       </div>
     </div>
   );
