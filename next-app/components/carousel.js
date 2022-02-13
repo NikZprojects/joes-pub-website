@@ -4,14 +4,7 @@ import styles from "../styles/components/Carousel.module.css";
 import Autoplay from "embla-carousel-autoplay";
 import { DotButton, PrevButton, NextButton } from "./carouselButtons";
 
-const IntroImages = [
-  "/IntroPage/BinghamtonBarv1.jpg",
-  "/IntroPage/BinghamtonBarv2.jpg",
-  "/IntroPage/AarhusBar.jpg",
-  "/IntroPage/WilmingtonBar.jpg",
-];
-export const EmblaCarousel = () => {
-  // const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoplay()]);
+export const EmblaCarousel = ({ images, alt }) => {
   const [viewportRef, embla] = useEmblaCarousel({ skipSnaps: false }, [
     Autoplay(),
   ]);
@@ -46,13 +39,13 @@ export const EmblaCarousel = () => {
       <div className={styles.embla}>
         <div className={styles.embla__viewport} ref={viewportRef}>
           <div className={styles.embla__container}>
-            {IntroImages.map((src) => (
+            {images.map((src) => (
               <div className={styles.embla__slide}>
                 <div className={styles.embla__slide__inner}>
                   <img
                     className={styles.embla__slide__img}
                     src={src}
-                    alt="Joe's Pub through the years."
+                    alt={alt}
                   />
                 </div>
               </div>

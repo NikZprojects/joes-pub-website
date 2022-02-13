@@ -1,6 +1,13 @@
 import styles from "../styles/Home.module.css";
 import { EmblaCarousel } from "../components/carousel";
 
+const IntroImages = [
+  "/IntroPage/BinghamtonBarv1.jpg",
+  "/IntroPage/BinghamtonBarv2.jpg",
+  "/IntroPage/AarhusBar.jpg",
+  "/IntroPage/WilmingtonBar.jpg",
+];
+
 export default function About() {
   return (
     <div className={styles.about}>
@@ -24,11 +31,29 @@ export default function About() {
           all the while spreading smiles, enjoyment, and quality entertainment.
         </p>
         <div className="slideshow">
-          <EmblaCarousel />
+          <EmblaCarousel
+            images={IntroImages}
+            alt={"Joe's Pub through the years."}
+          />
         </div>
-        Joe&apos;s Pub has had the pleasure in competing in invited several
-        cocktail competitions.
-        <div className="images"></div>
+        <p style={{ textAlign: "center", margin: "10px 0 20px 0" }}>
+          Joe&apos;s Pub has had the pleasure in competing in several cocktail
+          competitions.
+        </p>
+
+        <div className="competitionImages">
+          <div className={styles.row}>
+            <div className={styles.column}>
+              <img
+                src="/IntroPage/ArtsChristmasParty.png"
+                alt="Art's Christmas Party Competition"
+              />
+            </div>
+            <div className={styles.column}>
+              <img src="/IntroPage/iSquareContest.jpg" alt="iSquare Contest" />
+            </div>
+          </div>
+        </div>
         <p>
           Above all, we promote an atmosphere of fun and jovial merriment where
           everyone knows your name and everyone feels at home. Libations are
