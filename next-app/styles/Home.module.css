@@ -47,6 +47,25 @@
   padding: 20px 20px;
 }
 
+.about .competitionImages {
+  height: 450px;
+}
+.about .row {
+  display: flex;
+}
+.about .column {
+  display: flex;
+  justify-content: center;
+
+  flex: 50%;
+  padding: 5px;
+}
+.about .column img {
+  width: 100%;
+  max-height: 400px;
+  max-width: 400px;
+}
+
 .establishedContainer {
   position: absolute;
   display: flex;

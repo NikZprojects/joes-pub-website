@@ -36,3 +36,4 @@ yarn-error.log*
 
 # word, powerpoint
 assets/~$es**.*
+assets/~$**.*

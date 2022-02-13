@@ -1,11 +1,15 @@
 import styles from "../../styles/Menu.module.css";
+import Link from "next/link";
 
 export default function Menu() {
   return (
     <div className={styles.menu}>
       <div className={styles.container}>
+        <Link href="/menu">
+          <p className={styles.link}>{"ᐸ Menu"}</p>
+        </Link>
         <h1 class="c9" id="h.xz0d0dhz4gsu">
-          <span class="c18 c2">Make Your Own Adventure</span>
+          <span class="c18 c2">Create Your Own Adventure</span>
         </h1>
         <p class="c4">
           <span class="c0">
