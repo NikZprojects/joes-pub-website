@@ -7,15 +7,67 @@
   max-width: 1200px;
   padding: 20px 20px;
 }
-
-.menu p.link {
+.menu .link {
   color: #0018b3;
   cursor: pointer;
-  padding: 2px 20px;
+  width: 100px;
 }
 
-.menu p.link:hover {
-  font-weight: bold;
+.menu .ImagesContainer {
+  display: flex;
+  max-width: 900px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.menu img.link {
+  cursor: pointer;
+}
+
+.menu .ImageContainer {
+  position: relative;
+  cursor: pointer;
+}
+
+.menu .ImageContainer:hover img {
+  opacity: 0.2;
+}
+
+.menu .ImageContainer img {
+  cursor: pointer;
+  object-fit: cover;
+  padding: 1vw;
+  width: 100%;
+  height: 100%;
+  min-width: 200px;
+  min-height: 200px;
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.menu .ImageContainer .middle {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.menu .ImageContainer:hover .middle {
+  opacity: 1;
+}
+
+.menu .ImageContainer .text {
+  /* background-color: white; */
+  color: black;
+  font-size: 22px;
+  padding: 16px 32px;
+}
+.menu .ImageContainer:hover .text {
+  opacity: 1;
 }
 
 .menu .title {

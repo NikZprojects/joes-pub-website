@@ -1,9 +1,13 @@
 import styles from "../../styles/Menu.module.css";
+import Link from "next/link";
 
 export default function Menu() {
   return (
     <div className={styles.menu}>
       <div className={styles.container}>
+        <Link href="/menu">
+          <p className={styles.link}>{"ᐸ Menu"}</p>
+        </Link>
         <h1 class="c9" id="h.8a3hfsb1w3r5">
           <span class="c18 c2">Premium Cocktails</span>
         </h1>

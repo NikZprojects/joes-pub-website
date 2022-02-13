@@ -1,9 +1,13 @@
 import styles from "../../styles/Menu.module.css";
+import Link from "next/link";
 
 export default function Menu() {
   return (
     <div className={styles.menu}>
       <div className={styles.container}>
+        <Link href="/menu">
+          <p className={styles.link}>{"ᐸ Menu"}</p>
+        </Link>
         <h1 class="c9" id="h.hrk91icudb51">
           <span class="c18 c2">Original Cocktails</span>
         </h1>
@@ -21,7 +25,7 @@ export default function Menu() {
         <p class="c4">
           <span class={styles.title}>Cake by the Ocean</span>
           <span>&nbsp; Cake v</span>
-          <span class="c3">odka, island punch schnapps, lemon-lime soda</span>
+          <span class="c3">Vodka, island punch schnapps, lemon-lime soda</span>
         </p>
         <p class="c4">
           <span class={styles.title}>The Izzo Special</span>
