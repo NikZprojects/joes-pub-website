@@ -7,12 +7,12 @@ export default function Menu() {
       <div className={styles.container}>
         <h2>Our Menu</h2>
         <div className={styles.ImagesContainer}>
-          {menuItems.map((item) => (
-            <Link href={item.href}>
+          {menuItems.map((item, index) => (
+            <Link href={item.href} key={index}>
               <div className={styles.ImageContainer}>
                 <img src={item.src} className={styles.link} alt={item.title} />
-                <div class={styles.middle}>
-                  <div class={styles.text}>{item.title}</div>
+                <div className={styles.middle}>
+                  <div className={styles.text}>{item.title}</div>
                 </div>
               </div>
             </Link>

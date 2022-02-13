@@ -8,11 +8,11 @@ export default function Menu() {
         <Link href="/menu">
           <p className={styles.link}>{"ᐸ Menu"}</p>
         </Link>
-        <h1 class="c9" id="h.8a3hfsb1w3r5">
-          <span class="c18 c2">Premium Cocktails</span>
+        <h1 className="c9" id="h.8a3hfsb1w3r5">
+          <span className="c18 c2">Premium Cocktails</span>
         </h1>
-        <p class="c4">
-          <span class="c0">
+        <p className="c4">
+          <span className="c0">
             As previously mentioned, our prices are only meant to cover the cost
             of the ingredients that go into our cocktails. Sometimes, those
             ingredients can be costly. Some argue the flavor is better. Some
@@ -23,45 +23,45 @@ export default function Menu() {
             for just $1 extra.
           </span>
         </p>
-        <p class="c4">
-          <span class="c0">&nbsp;</span>
+        <p className="c4">
+          <span className="c0">&nbsp;</span>
         </p>
-        <p class="c4">
-          <span class={styles.title}>Gulab Jamun</span>
+        <p className="c4">
+          <span className={styles.title}>Gulab Jamun</span>
           <span>&nbsp; </span>
-          <span class="c3">Jameson Irish whiskey, cardamom syrup</span>
+          <span className="c3">Jameson Irish whiskey, cardamom syrup</span>
         </p>
-        <p class="c4">
-          <span class={styles.title}>Hummingbird to Mars</span>
+        <p className="c4">
+          <span className={styles.title}>Hummingbird to Mars</span>
           <span>&nbsp; </span>
-          <span class="c3">
+          <span className="c3">
             Maker&rsquo;s Mark bourbon, demerara syrup, orange bitters
           </span>
         </p>
-        <p class="c4">
-          <span class={styles.title}>El Diablo</span>
+        <p className="c4">
+          <span className={styles.title}>El Diablo</span>
           <span>&nbsp; </span>
-          <span class="c3">Mezcal, cinnamon whiskey, triple sec</span>
+          <span className="c3">Mezcal, cinnamon whiskey, triple sec</span>
         </p>
-        <p class="c4">
-          <span class={styles.title}>Naked &amp; Famous</span>
+        <p className="c4">
+          <span className={styles.title}>Naked &amp; Famous</span>
           <span>&nbsp; </span>
-          <span class="c3">
+          <span className="c3">
             Mezcal, green Chartreuse, Aperol&reg;, demerara syrup, lime juice
           </span>
         </p>
-        <p class="c4">
-          <span class={styles.title}>Sidecar</span>
+        <p className="c4">
+          <span className={styles.title}>Sidecar</span>
           <span>&nbsp; </span>
-          <span class="c3">
+          <span className="c3">
             Cointreau&reg;, cognac, lemon juice, simple syrup
           </span>
         </p>
-        <p class="c13 c6">
-          <span class="c2 c14"></span>
+        <p className="c13 c6">
+          <span className="c2 c14"></span>
         </p>
-        <p class="c4">
-          <span class="c14 c2">&nbsp;</span>
+        <p className="c4">
+          <span className="c14 c2">&nbsp;</span>
         </p>
       </div>
     </div>

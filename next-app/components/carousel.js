@@ -39,8 +39,8 @@ export const EmblaCarousel = ({ images, alt }) => {
       <div className={styles.embla}>
         <div className={styles.embla__viewport} ref={viewportRef}>
           <div className={styles.embla__container}>
-            {images.map((src) => (
-              <div className={styles.embla__slide}>
+            {images.map((src, index) => (
+              <div className={styles.embla__slide} key={index}>
                 <div className={styles.embla__slide__inner}>
                   <img
                     className={styles.embla__slide__img}
