@@ -37,3 +37,6 @@ yarn-error.log*
 # word, powerpoint
 assets/~$es**.*
 assets/~$**.*
+
+.DS_Store
+access_keys.json
