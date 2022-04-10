@@ -78,3 +78,21 @@
 .menu .title {
   font-weight: bold;
 }
+
+/* Mobile (fallback for useDeviceType Hook) */
+@media screen and (max-width: 500px) /* Mobile */ {
+  /* .menu .ImageContainer img {
+    opacity: 0.8;
+  } */
+  .menu .ImageContainer .middle {
+    opacity: 1;
+  }
+  .menu .ImageContainer .text {
+    opacity: 1;
+    font-weight: bold;
+    color: white;
+    line-height: 30px;
+    /* -webkit-text-stroke: 1px white;
+    -webkit-text-fill-color: white; */
+  }
+}

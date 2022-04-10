@@ -1,7 +1,10 @@
 import Link from "next/link";
 import styles from "../../styles/Menu.module.css";
+import useDeviceType from "../../hooks/useDeviceType.js";
 
 export default function Menu() {
+  console.log(useDeviceType());
+
   return (
     <div className={styles.menu}>
       <div className={styles.container}>
@@ -61,7 +64,8 @@ const menuItems = [
   },
   {
     title: "Create Your Own Adventure",
-    src: "/DigitalMenu/CreateYourOwn.jpg",
+    src: "/DigitalMenu/Empty.png",
+    // src: "/DigitalMenu/CreateYourOwn.jpg",
     href: "/menu/create_your_own",
   },
 ];
