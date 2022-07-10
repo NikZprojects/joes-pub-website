@@ -13,16 +13,18 @@ export default function Instagram() {
 
   const [searchTerm, setSearchTerm] = useState("");
 
-  // useEffect(() => {
-  //   fetch("https://www.nikzprojects.com/api/chemistrycocktails.json")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setState({ items: data, isLoaded: true });
-  //     });
-  // }, []);
   useEffect(() => {
-    setState({ items: sample_data, isLoaded: true });
+    fetch("https://www.nikzprojects.com/api/chemistrycocktails.json")
+      .then((response) => response.json())
+      .then((data) => {
+        setState({ items: data, isLoaded: true });
+      });
   }, []);
+
+  // For testing Locally (comment out above)
+  // useEffect(() => {
+  //   setState({ items: sample_data, isLoaded: true });
+  // }, []);
 
   return (
     <div className={styles.instagram}>
