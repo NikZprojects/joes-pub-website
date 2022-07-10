@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "../styles/Instagram.module.css";
 import Link from "next/link";
 // import Image from "next/image";
+import sample_data from "../../static-site-backup/data/chemistrycocktails_production.json";
 
 export default function Instagram() {
   const [state, setState] = useState({
@@ -12,12 +13,15 @@ export default function Instagram() {
 
   const [searchTerm, setSearchTerm] = useState("");
 
+  // useEffect(() => {
+  //   fetch("https://www.nikzprojects.com/api/chemistrycocktails.json")
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setState({ items: data, isLoaded: true });
+  //     });
+  // }, []);
   useEffect(() => {
-    fetch("https://www.nikzprojects.com/api/chemistrycocktails.json")
-      .then((response) => response.json())
-      .then((data) => {
-        setState({ items: data, isLoaded: true });
-      });
+    setState({ items: sample_data, isLoaded: true });
   }, []);
 
   return (
@@ -26,7 +30,7 @@ export default function Instagram() {
         <div>Loading...</div>
       ) : (
         <div className={styles.appContent}>
-          <h1>Chemistry.Cocktails Search</h1>
+          <h1>Instagram Search:</h1>
           <input
             type="text"
             placeholder="Search..."
