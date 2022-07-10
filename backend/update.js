@@ -2,20 +2,11 @@ const fs = require("fs");
 const axios = require("axios");
 const path = require("path");
 const time = new Date();
+require("dotenv").config({ path: "../.env" });
 const newData = [];
 
-const access_key = require(path.join(
-  "..",
-  "static",
-  "data",
-  "access_keys.json"
-)).access_key;
-const originalData = require(path.join(
-  "..",
-  "static",
-  "data",
-  "chemistrycocktails_production.json"
-));
+const access_key = process.env.IG_ACCESS_TOKEN;
+const originalData = require("../static-site-backup/data/chemistrycocktails_production.json");
 
 const verifyData = JSON.stringify(originalData);
 const exclude = require("./exclude.json");
@@ -63,6 +54,7 @@ function filterImage(item) {
     item.media_type == "IMAGE" &&
     !item.caption.includes("#regrann") &&
     !item.caption.includes("#midweek") &&
+    !item.caption.includes("#repost") &&
     !isExcluded(exclude, item.permalink)
   ) {
     return item;
@@ -77,7 +69,8 @@ function writeJSON(JSONdata) {
       "Most recent post date: " + JSON.stringify(JSONdata[0].timestamp)
     );
   } else {
-    const path = "../static/data/chemistrycocktails_production.json";
+    const path =
+      "../static-site-backup/data/chemistrycocktails_production.json";
     fs.writeFile(path, result, (err) => {
       if (err) {
         throw err;

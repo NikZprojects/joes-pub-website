@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "../styles/Instagram.module.css";
 import Link from "next/link";
 // import Image from "next/image";
+import sample_data from "../../static-site-backup/data/chemistrycocktails_production.json";
 
 export default function Instagram() {
   const [state, setState] = useState({
@@ -20,13 +21,18 @@ export default function Instagram() {
       });
   }, []);
 
+  // For testing Locally (comment out above)
+  // useEffect(() => {
+  //   setState({ items: sample_data, isLoaded: true });
+  // }, []);
+
   return (
     <div className={styles.instagram}>
       {!state.isLoaded ? (
         <div>Loading...</div>
       ) : (
         <div className={styles.appContent}>
-          <h1>Chemistry.Cocktails Search</h1>
+          <h1>Instagram Search:</h1>
           <input
             type="text"
             placeholder="Search..."
