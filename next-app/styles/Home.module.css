@@ -203,9 +203,8 @@
   padding: 0px calc(0.3rem + 0.15vw);
 }
 .socialContainer h2 {
+  width: 100vw;
   text-align: center;
-  width: 100%;
-  min-width: 900px;
 }
 
 .socialContainer img {
