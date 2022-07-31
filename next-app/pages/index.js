@@ -1,4 +1,5 @@
 import styles from "../styles/Home.module.css";
+import SocialLinks from "../components/socialLinks";
 // import Image from "next/image";
 // import logo from "../public/JPsLogo.svg";
 // import logo from "../public/JPsLogo2.png"; // includes year established
@@ -21,6 +22,11 @@ export default function Home() {
               <h2>&nbsp;Aarhus-Denmark</h2>
             </div>
           </div>
+          <div style={{ paddingTop: 35 }}></div>
+        </div>
+        <div className={styles.socialContainer}>
+          <h2>Contact / Follow us:</h2>
+          <SocialLinks />
         </div>
       </main>
     </div>

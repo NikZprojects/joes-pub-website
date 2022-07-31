@@ -13,7 +13,7 @@
 }
 
 .main {
-  min-height: 100vh;
+  min-height: 90vh;
   padding: 4rem 0;
   flex: 1;
   display: flex;
@@ -85,7 +85,8 @@
   flex-wrap: wrap;
   justify-content: center;
 }
-.locationsContainer h2 {
+.locationsContainer h2,
+.socialContainer h2 {
   font-family: "Charm", cursive;
   font-weight: normal;
   padding: 0px 20px;
@@ -186,6 +187,58 @@
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.5;
+}
+
+/*--- Social buttons --- */
+.socialContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.socialContainer span.innerSocialContiainer {
+  position: relative;
+  right: calc(0.4rem + 0.15vw);
+  padding: 0px calc(0.3rem + 0.15vw);
+}
+.socialContainer h2 {
+  text-align: center;
+  width: 100%;
+  min-width: 900px;
+}
+
+.socialContainer img {
+  cursor: pointer;
+  width: calc(1rem + 2vw);
+  max-width: 50px;
+  position: relative;
+  top: min(8px, calc(0.15rem + 0.2vw));
+}
+
+/* .socialContainer .email {
+  top: 0.25rem;
+  right: calc(0.2rem + 2vw);
+}
+.socialContainer .craftedPour {
+  top: 0.25rem;
+  right: calc(0rem + 1vw);
+} */
+
+.socialContainer a.socialLinks {
+  padding: 0px min(50px, calc(0.9rem + 2vw));
+  font-size: min(50px, calc(1rem + 2vw));
+  width: calc(1rem + 2vw);
+  max-width: 50px;
+  text-align: center;
+  text-decoration: none;
+  /* margin: 5px 2px; */
+  border-radius: 0%;
+}
+
+.socialContainer a:hover,
+.socialContainer img:hover {
+  opacity: 0.6;
 }
 
 @media (max-width: 600px) {
