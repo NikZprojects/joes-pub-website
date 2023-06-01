@@ -41,3 +41,4 @@ assets/~$**.*
 
 .DS_Store
 access_keys.json
+.history

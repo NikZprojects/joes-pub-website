@@ -52,7 +52,6 @@ export default function Instagram() {
                 var searchableCaption = item.caption
                   .replace(/[\r\n'"*#@]+/gm, " ")
                   .toLowerCase();
-                // var searchTerm = state.searchTerm;
 
                 function matchingItems(searchTerm, item) {
                   if (
@@ -72,7 +71,7 @@ export default function Instagram() {
                     searchTerm[0] == '"' &&
                     searchTerm[searchTerm.length - 1] == '"'
                   ) {
-                    searchTerm += " ";
+                    setSearchTerm(searchTerm + " ");
                     if (matchingItems(searchTerm, item)) {
                       return item;
                     }
