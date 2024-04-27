@@ -49,10 +49,22 @@ export default function Menu() {
           </span>
         </p>
         <p className="c4">
+          <span className={styles.title}>El Diablo</span>
+          <span>&nbsp; </span>
+          <span className="c3">Mezcal, cinnamon whiskey, triple sec</span>
+        </p>
+        <p className="c4">
           <span className={styles.title}>Elder Greyhound</span>
           <span>&nbsp; </span>
           <span className="c3">
             Vodka, Elderflower liqueur, grapefruit juice
+          </span>
+        </p>
+        <p className="c4">
+          <span className={styles.title}>Hummingbird to Mars</span>
+          <span>&nbsp; </span>
+          <span className="c3">
+            Maker&rsquo;s Mark bourbon, demerara syrup, orange bitters
           </span>
         </p>
         <p className="c4">

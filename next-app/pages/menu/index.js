@@ -51,11 +51,6 @@ export default function Menu() {
         href: "/menu/original_cocktails",
       },
       {
-        title: "Premium Cocktails",
-        src: "/DigitalMenu/Premium.png",
-        href: "/menu/premium_cocktails",
-      },
-      {
         title: "Shots",
         src: "/DigitalMenu/Shots.png",
         href: "/menu/shots",
@@ -97,7 +92,12 @@ export default function Menu() {
           {menuItems.map((item, index) => (
             <Link href={item.href} key={index}>
               <div className={styles.ImageContainer}>
-                <img src={item.src} className={styles.link} alt={item.title} />
+                <img
+                  src={item.src}
+                  className={styles.link}
+                  style={{ objectFit: "cover", width: 270, height: 270 }}
+                  alt={item.title}
+                />
                 <div
                   className={styles.middle}
                   style={{

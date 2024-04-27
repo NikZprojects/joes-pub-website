@@ -30,6 +30,11 @@ export default function Menu() {
           </span>
         </p>
         <p className="c4">
+          <span className={styles.title}>Gulab Jamun</span>
+          <span>&nbsp; </span>
+          <span className="c3">Jameson Irish whiskey, cardamom syrup</span>
+        </p>
+        <p className="c4">
           <span className={styles.title}>The Izzo Special</span>
           <span>&nbsp; </span>
           <span className="c3">
