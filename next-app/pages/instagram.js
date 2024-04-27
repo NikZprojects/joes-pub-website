@@ -4,6 +4,8 @@ import Link from "next/link";
 // import Image from "next/image";
 import sample_data from "../../static-site-backup/data/chemistrycocktails_production.json";
 
+const USE_PRODUCTION_DATA = true;
+
 export default function Instagram() {
   const [state, setState] = useState({
     error: null,
@@ -11,10 +13,22 @@ export default function Instagram() {
     items: [],
   });
 
+  const [warned, setWarned] = useState(false);
+  if (
+    USE_PRODUCTION_DATA &&
+    process.env.NODE_ENV === "development" &&
+    !warned
+  ) {
+    console.warn(
+      "USE_PRODUCTION_DATA is enabled in /pages/instagram.js. To test data updates, set this to false instead"
+    );
+    setWarned(true);
+  }
+
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    if (process.env.NODE_ENV === "development") {
+    if (!USE_PRODUCTION_DATA && process.env.NODE_ENV === "development") {
       setState({ items: sample_data, isLoaded: true });
     } else {
       fetch("https://www.nikzprojects.com/api/chemistrycocktails.json")

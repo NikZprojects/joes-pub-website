@@ -67,11 +67,17 @@ export default function About() {
         </p>
         <p>Nikolas J. Zagarella – Webmaster</p>
         <p>Saptarshi Ghosh – Resident bum</p>
-        <h2>Donations</h2>
+        <h2>Tips</h2>
         <p>
-          {" "}
-          Donations to Joe's Pub may be made via Venmo to the username
-          @emubob59, or PayPal to jaizzo92@gmail.com.
+          Tips to Joe's Pub may be made via Venmo to the username{" "}
+          <a
+            href="https://account.venmo.com/u/joespub"
+            target="_blank"
+            className={styles.link}
+          >
+            @joespub
+          </a>
+          .
         </p>
       </div>
     </div>

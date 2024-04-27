@@ -42,6 +42,13 @@ export default function Menu() {
           </span>
         </p>
         <p className="c4">
+          <span className={styles.title}>Naked &amp; Famous</span>
+          <span>&nbsp; </span>
+          <span className="c3">
+            Mezcal, green Chartreuse, Aperol&reg;, demerara syrup, lime juice
+          </span>
+        </p>
+        <p className="c4">
           <span className={styles.title}>Mai Tai</span>
           <span>&nbsp; </span>
           <span className="c3">
@@ -98,6 +105,13 @@ export default function Menu() {
           <span>&nbsp; </span>
           <span className="c3">
             Vodka, peach schnapps, pineapple and cranberry juice
+          </span>
+        </p>
+        <p className="c4">
+          <span className={styles.title}>Sidecar</span>
+          <span>&nbsp; </span>
+          <span className="c3">
+            Cointreau&reg;, cognac, lemon juice, simple syrup
           </span>
         </p>
         <p className="c4">
