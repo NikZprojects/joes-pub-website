@@ -32,6 +32,9 @@ export default function Navbar() {
         <Link href="/recipes">
           <h1>Recipes</h1>
         </Link>
+        <Link href="/events">
+          <h1>Events</h1>
+        </Link>
       </div>
     </div>
   );
