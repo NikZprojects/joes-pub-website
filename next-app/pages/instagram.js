@@ -31,7 +31,7 @@ export default function Instagram() {
     if (!USE_PRODUCTION_DATA && process.env.NODE_ENV === "development") {
       setState({ items: sample_data, isLoaded: true });
     } else {
-      fetch("https://www.nikzprojects.com/api/chemistrycocktails.json")
+      fetch("http://www.nikzprojects.com/api/chemistrycocktails.json")
         .then((response) => response.json())
         .then((data) => {
           setState({ items: data, isLoaded: true });
