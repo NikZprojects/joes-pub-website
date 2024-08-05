@@ -6,7 +6,7 @@ require("dotenv").config({ path: "../.env" });
 const newData = [];
 
 const access_key = process.env.IG_ACCESS_TOKEN;
-const originalData = require("../static-site-backup/data/chemistrycocktails_production.json");
+const originalData = require("./data/chemistrycocktails_production.json");
 
 const verifyData = JSON.stringify(originalData);
 const exclude = require("./exclude.json");
@@ -70,7 +70,7 @@ function writeJSON(JSONdata) {
     );
   } else {
     const path =
-      "../static-site-backup/data/chemistrycocktails_production.json";
+      "./data/chemistrycocktails_production.json";
     fs.writeFile(path, result, (err) => {
       if (err) {
         throw err;
