@@ -51,11 +51,13 @@ async function getDatafromIG(access_key, url) {
 
 function filterImage(item) {
   if (
-    (item.media_type == "IMAGE" || item.media_type == "CAROUSEL_ALBUM") &&
+    item.media_type == "IMAGE" ||
+    item.media_type == "CAROUSEL_ALBUM"
+
     // !item.caption.includes("#regrann") &&
     // !item.caption.includes("#midweek") &&
     // !item.caption.includes("#repost") &&
-    !isExcluded(exclude, item.permalink)
+    // !isExcluded(exclude, item.permalink)
   ) {
     return item;
   }
