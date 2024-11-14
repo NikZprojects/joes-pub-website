@@ -3,8 +3,18 @@ import styles from "../styles/Instagram.module.css";
 import Link from "next/link";
 // import Image from "next/image";
 import sample_data from "../../static-site-backup/data/chemistrycocktails_production.json";
+const exclude = require("../../backend/exclude.json");
 
 const USE_PRODUCTION_DATA = true;
+
+function isExcluded(excluded, permalink) {
+  for (let i = 0; i < excluded.permalink.length; i++) {
+    if (excluded.permalink[i].includes(permalink)) {
+      return true;
+    }
+  }
+  return false;
+}
 
 export default function Instagram() {
   const [state, setState] = useState({
@@ -61,6 +71,15 @@ export default function Instagram() {
           />
           <div className={styles.imgBlock}>
             {state.items
+              .filter(
+                (item) =>
+                  (searchTerm.includes("$") ||
+                    !item.caption.includes("#midweek")) &&
+                  (searchTerm.includes("$$") ||
+                    (!item.caption.includes("#regrann") &&
+                      !item.caption.includes("#repost") &&
+                      !isExcluded(exclude, item.permalink)))
+              )
               .filter((item) => {
                 var searchableCaption = item.caption
                   .replace(/[\r\n'"*#@]+/gm, " ")
@@ -69,7 +88,7 @@ export default function Instagram() {
                 function matchingItems(searchTerm, item) {
                   if (
                     searchableCaption.includes(
-                      " " + searchTerm.replace(/[",]+/gm, "")
+                      " " + searchTerm.replace(/[",$]+/gm, "")
                     )
                   ) {
                     return item;
