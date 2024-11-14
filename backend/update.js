@@ -52,9 +52,9 @@ async function getDatafromIG(access_key, url) {
 function filterImage(item) {
   if (
     (item.media_type == "IMAGE" || item.media_type == "CAROUSEL_ALBUM") &&
-    !item.caption.includes("#regrann") &&
-    !item.caption.includes("#midweek") &&
-    !item.caption.includes("#repost") &&
+    // !item.caption.includes("#regrann") &&
+    // !item.caption.includes("#midweek") &&
+    // !item.caption.includes("#repost") &&
     !isExcluded(exclude, item.permalink)
   ) {
     return item;
@@ -69,8 +69,7 @@ function writeJSON(JSONdata) {
       "Most recent post date: " + JSON.stringify(JSONdata[0].timestamp)
     );
   } else {
-    const path =
-      "./data/chemistrycocktails_production.json";
+    const path = "./data/chemistrycocktails_production.json";
     fs.writeFile(path, result, (err) => {
       if (err) {
         throw err;
