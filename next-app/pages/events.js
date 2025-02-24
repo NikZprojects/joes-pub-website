@@ -1,6 +1,7 @@
 import styles from "../styles/Home.module.css";
 
 const eventDetails = [
+  { Date: "03/18/2025", Name: "Tiki Poster" },
   { Date: "08/13/2024", Name: "Rum Poster" },
   { Date: "04/30/2024", Name: "Tequila Poster" },
 ];
